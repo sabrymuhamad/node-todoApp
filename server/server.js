@@ -62,3 +62,7 @@ module.exports = {
 };
 // sabri 
 // OD2o0GOGtXoeuPil
+
+
+// heroku config:set MONGODB_URI="mongodb+srv://sabri:OD2o0GOGtXoeuPil@TodoApp.n9z04.mongodb.net/todoapp-mongodb?retryWrites=true&w=majority"
+// https://www.mongodb.com/developer/how-to/use-atlas-on-heroku/#:~:text=Get%20Your%20Atlas%20Cluster%20Connection,to%20connect%20to%20our%20cluster.
