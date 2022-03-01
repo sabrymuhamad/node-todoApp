@@ -5,7 +5,7 @@ const dbName = 'TodoApp';
 
 const uri = `mongodb+srv://sabri:OD2o0GOGtXoeuPil@cluster0.znry1.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 const url = 'mongodb://localhost:27017/' + dbName;
-mongoose.connect(uri || url);
+mongoose.connect(process.env.MONGODB_URI || url);
 
 module.exports = {
     mongoose
