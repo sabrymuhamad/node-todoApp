@@ -18,6 +18,7 @@ const port = process.env.PORT || 3000;
 var app = express();
 app.use(bodyParser.json());
 
+// TODOS
 app.post('/todos', (req, res) => {
     var todo = new Todo({
         text: req.body.text
@@ -79,7 +80,6 @@ app.get('/todos/:id', (req, res) => {
 app.patch('/todos/:id', (req, res) => {
     var id = req.params.id;
     var body = _.pick(req.body, ['text', 'completed']);
-    body.completedAt = new Date().toISOString();
     if (!ObjectId.isValid(id)) {
         return res.status(404).send('Id is not found.');
     };
@@ -94,6 +94,19 @@ app.patch('/todos/:id', (req, res) => {
         res.send(todo);
     }, (err) => {
         res.status(400).send(err);
+    });
+});
+
+// USERS
+app.post('/users', (req, res) => {
+    var body = _.pick(req.body, ['email', 'password']);
+    var user = new User(body);
+    user.save().then((user) => {
+        res.send(user);
+    }, (err) => {
+        res.status(400).send(err);
+    }).catch((e) => {
+        res.status(400).send(e);
     });
 });
 
