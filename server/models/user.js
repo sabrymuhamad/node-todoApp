@@ -95,7 +95,7 @@ UserSchema.statics.findByCred = function (email, password) {
                     reject();
                 }
             })
-        })
+        });
     })
 };
 
